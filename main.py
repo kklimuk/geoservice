@@ -88,7 +88,7 @@ def add_location_attributes():
 		elif isinstance(data, geojson.Feature):
 			oid = db.features.save(data, w=1)
 			return dict(data, id=str(oid), _id=str(oid))
-			
+
 		raise Exception('The new location must be a GeoJSON Feature or FeatureCollection.')
 	except Exception, e:
 		return {
@@ -97,4 +97,4 @@ def add_location_attributes():
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run("0.0.0.0", debug=True)
