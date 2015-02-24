@@ -6,6 +6,8 @@ from pymongo import MongoClient
 import json
 import geojson
 
+from sys import argv
+
 app = Flask(__name__)
 db = MongoClient().geoservice
 
@@ -97,4 +99,4 @@ def add_location_attributes():
 
 
 if __name__ == '__main__':
-	app.run("0.0.0.0", debug=True)
+	app.run("0.0.0.0", port=(5000 if len(argv) < 2 else int(argv[1])), debug=True)
