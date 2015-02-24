@@ -9,7 +9,7 @@ import geojson
 from sys import argv
 
 app = Flask(__name__)
-db = MongoClient().geoservice
+db = MongoClient(port=(27017 if len(argv) < 3 else int(argv[2]))).geoservice
 
 
 def validate_location(func):
